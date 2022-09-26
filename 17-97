@@ -1,0 +1,18 @@
+def f(x , q):
+    a = []
+    while x > 0:
+        a.append(x % q)
+        x //= q
+    return a[::-1]  # list(reversed(a))
+
+
+k = 0
+kmax = 0
+
+for i in range(777, 3777+1):
+    x = f(i, 16)
+    if (x[-1] == 15 and x[0] == 10) and (i % 11 != 0):
+        k += 1
+        kmax = max(kmax, i)
+        
+print(k, kmax)
